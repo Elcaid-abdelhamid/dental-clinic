@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 60% 99%;
+    --foreground: 215 35% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 12%;
+    --primary: 199 89% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 195 100% 95%;
+    --secondary-foreground: 199 89% 25%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 45%;
+    --accent: 187 92% 45%;
+    --accent-foreground: 199 89% 15%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 40% 96%;
+    --primary: 199 89% 55%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 199 89% 80%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 187 92% 55%;
+    --accent-foreground: 199 89% 90%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 199 89% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-white/40 dark:border-white/10;
+  }
+
+  .glass-strong {
+    @apply bg-white/80 dark:bg-slate-900/70 backdrop-blur-2xl border border-white/50 dark:border-white/10;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-600 via-cyan-500 to-teal-500;
+  }
+
+  .bg-dot-grid {
+    background-image: radial-gradient(rgb(14 165 233 / 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .container-tight {
+    @apply mx-auto max-w-7xl px-6;
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-sky-500/30 rounded-full;
+}
